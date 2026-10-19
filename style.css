@@ -1,0 +1,432 @@
+/* ===== 1. VARIÁVEIS ===== */
+:root {
+  color-scheme: dark;
+
+  --bg: #14121f;         
+  --surface: #1f1c30;     
+  --text: #f4f1ff;        
+  --muted: #b4b0cc;       
+  --brand: #ff5c69;       
+  --on-brand: #1d1b2e;    
+  --accent: #ffcb05;      
+  --border: #36324f;      
+  --hero: #2a2347;        
+  --footer-bg: #0e0c17;   
+  --footer-text: #e9e6f7; 
+
+  --radius: 16px;
+  --radius-sm: 12px;
+}
+
+
+/* ===== 2. BASE ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 1rem/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+
+/* ===== 3. LAYOUT E TÍTULOS ===== */
+.wrap {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+section {
+  padding: 4rem 0;
+}
+
+h1, h2, h3 {
+  line-height: 1.2;
+  margin: 0 0 0.75rem;
+}
+
+h1 { font-size: clamp(2rem, 6vw, 3.4rem); }
+h2 { font-size: clamp(1.5rem, 4vw, 2.2rem); }
+
+
+/* ===== 4. BOTÃO ===== */
+.btn {
+  display: inline-block;
+  background: var(--brand);
+  color: #fff;
+  padding: 0.85rem 1.6rem;
+  border: 0;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.15s, filter 0.15s;
+}
+
+.btn:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+
+/* ===== 5. HEADER ===== */
+header.top {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.top .wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 0.8rem;
+}
+
+.logo {
+  margin: 0;
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+
+nav a {
+  color: var(--text);
+  text-decoration: none;
+  margin-left: 1rem;
+  font-weight: 500;
+}
+
+nav a:hover {
+  color: var(--brand);
+}
+
+
+/* ===== 6. HERO ===== */
+.hero {
+  background: var(--hero);
+}
+
+.hero .wrap {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.lead {
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+.hero .btn {
+  margin-top: 1rem;
+}
+
+figure {
+  margin: 0;
+}
+
+figure img {
+  display: block;
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 14px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+  transform: rotate(4deg);
+}
+
+.center {
+  text-align: center;
+}
+
+
+/* ===== 7. SHOWCASE (CARROSSEL) ===== */
+.carousel {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  padding-bottom: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
+}
+
+.carousel article {
+  flex: 0 0 min(260px, 80%);
+  scroll-snap-align: start;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.25rem;
+  text-align: center;
+}
+
+.carousel article p {
+  color: var(--muted);
+  margin: 0.5rem 0 0;
+}
+
+.carousel img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+
+/* ===== 8. DIFERENCIAIS (BLOCOS ALTERNADOS) ===== */
+.diferenciais {
+  background: var(--surface);
+}
+
+.alt {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.alt:nth-of-type(even) figure {
+  order: 2;
+}
+
+.alt img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+}
+
+.alt h3 {
+  font-size: 1.5rem;
+}
+
+.alt p {
+  color: var(--muted);
+}
+
+
+/* ===== 9. PROVA SOCIAL ===== */
+.social {
+  background: var(--surface);
+  border-block: 1px solid var(--border); 
+}
+
+.stats {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.stats strong {
+  display: block;
+  font-size: 2rem;
+  color: var(--brand);
+}
+
+.depoimentos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+blockquote {
+  margin: 0;
+  padding: 1.25rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+blockquote p {
+  margin: 0;
+}
+
+blockquote footer {
+  margin-top: 0.75rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+
+/* ===== 10. CTA ===== */
+.cta {
+  background: var(--brand);
+  color: #fff;
+  text-align: center;
+}
+
+.cta h2 {
+  color: #fff;
+}
+
+.cta .btn {
+  background: var(--accent);
+  color: var(--text);
+}
+
+
+/* ===== 11. FAQ (ACORDEÃO SEM JS) ===== */
+.faq {
+  max-width: 720px;
+  margin: 2rem auto 0;
+}
+
+details {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin-bottom: 0.75rem;
+}
+
+summary {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  font-weight: 700;
+  cursor: pointer;
+  list-style: none; /* remove a setinha padrão */
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary::after {
+  content: "+";
+  font-size: 1.4rem;
+  line-height: 1;
+  color: var(--brand);
+  transition: transform 0.2s;
+}
+
+details[open] summary::after {
+  transform: rotate(45deg);
+}
+
+details p {
+  margin: 0;
+  padding: 0 1.25rem 1.1rem;
+  color: var(--muted);
+}
+
+
+/* ===== 12. FOOTER + NEWSLETTER ===== */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+footer.site {
+  background: var(--footer-bg);
+  color: var(--footer-text);
+  padding: 3rem 0 2rem;
+}
+
+footer.site .wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+footer.site h2 {
+  font-size: 1.3rem;
+  text-align: left;
+}
+
+footer.site a {
+  color: var(--accent);
+}
+
+footer.site ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+footer.site li {
+  margin-bottom: 0.4rem;
+}
+
+#newsletter {
+  padding: 0;
+}
+
+.news {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.news input {
+  flex: 1;
+  min-width: 180px;
+  padding: 0.8rem 1rem;
+  border: 0;
+  border-radius: 999px;
+  font-size: 1rem;
+}
+
+
+/* ===== 13. FOCO DO TECLADO ===== */
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.copy {
+  grid-column: 1 / -1;
+  margin: 1rem 0 0;
+  text-align: center;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+
+/* ===== 14. RESPONSIVO ===== */
+@media (max-width: 760px) {
+  section {
+    padding: 3rem 0;
+  }
+
+  .hero .wrap,
+  .alt,
+  footer.site .wrap {
+    grid-template-columns: 1fr;
+  }
+
+  .alt:nth-of-type(even) figure {
+    order: 0;
+  }
+
+  .stats {
+    gap: 1.5rem;
+  }
+}
